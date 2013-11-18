@@ -181,7 +181,7 @@ namespace MoreAdminCommands
             permlist.Add("ghostmode");
             permlist.Add("fly");
             permlist.Add("flymisc");
-            permlist.Add("mute");
+         //   permlist.Add("mute");
             permlist.Add("reloadmore");
             permlist.Add("permabuff");
             permlist.Add("findperm");
@@ -196,7 +196,7 @@ namespace MoreAdminCommands
                 upPressed[i] = false;
                 carpetPoints.Add(new List<Vector2>());
                 buffsUsed.Add(new List<int>());
-                muted[i] = false;
+               muted[i] = false;
                 muteTime[i] = -1;
                 muteAllFree[i] = false;
                 viewAll[i] = false;
@@ -222,7 +222,7 @@ namespace MoreAdminCommands
             Commands.ChatCommands.Add(new Command("permabuff", permaBuffGroup, "permabuffgroup"));
             Commands.ChatCommands.Add(new Command("forcegive", ForceGive, "forcegive"));
             Commands.ChatCommands.Add(new Command("killall", KillAll, "killall"));
-            Commands.ChatCommands.Add(new Command("mute", Mute, "mute"));
+         //   Commands.ChatCommands.Add(new Command("mute", Mute, "mute"));
             Commands.ChatCommands.Add(new Command("mute", PermaMute, "permamute"));
             Commands.ChatCommands.Add(new Command("muteall", MuteAll, "muteall"));
             Commands.ChatCommands.Add(new Command("butcher", ButcherAll, "butcherall"));
@@ -2959,7 +2959,7 @@ namespace MoreAdminCommands
                 var npc = npcs[0];
                 if (npc.type >= 1 && npc.type < Main.maxNPCTypes)
                 {
-                    TSPlayer.Server.SpawnNPC(npc.type, npc.name, amount, players[0].TileX, players[0].TileY, 50, 20);
+                    TSPlayer.Server.SpawnNPC(npc.type, npc.name, amount, players[0].TileX*16, players[0].TileY*16, 50, 20);
                     TShockAPI.TShock.Utils.Broadcast(string.Format("{0} was spawned {1} time(s) nearby {2}.", npc.name, amount, players[0].Name));
                 }
                 else
